@@ -1,7 +1,9 @@
-const { ApolloServer } = require("apollo-server");
-const graphqlSchema = require("./graphql/schema");
-const graphqlResolver = require("./graphql/resolvers");
-const mongoose = require("mongoose");
+import { ApolloServer} from '@apollo/server';
+const {graphqlSchema}= require('./schema');
+ 
+ 
+import {graphqlResolver} from'../resolver';
+import {mongoose} from "mongoose";
 
 mongoose
   .connect("mongodb://localhost:27017/notes", {
