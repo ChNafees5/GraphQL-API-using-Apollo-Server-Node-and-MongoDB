@@ -1,6 +1,5 @@
-
-const {graphqlSchema}= require('./schema');
-const {graphqlResolver}= require('./resolver');
+const {graphqlSchema}= require('./graphql/schema');
+const {graphqlResolver}= require('./graphql/resolver');
 const { ApolloServer} = require ('@apollo/server');
 const {mongoose} = require("mongoose");
 
