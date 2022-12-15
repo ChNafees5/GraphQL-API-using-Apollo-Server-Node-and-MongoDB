@@ -4,8 +4,13 @@ export const typeDefs= gql`
    type Query {
       checkapistatus: apistatus
    }
-
+type Mutation {
+   testmutation(input:String): Test
+}
    type apistatus{
     status: String
+   }
+   type Test{
+      status: String
    }
 `
