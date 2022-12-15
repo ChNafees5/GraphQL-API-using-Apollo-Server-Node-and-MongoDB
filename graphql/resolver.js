@@ -1,5 +1,5 @@
  export const resolvers = {
-   checkapistatus:()=> {
+   Query: {checkapistatus:()=> {
     return {status:'this is APi'}
-   }
+   }}
 }

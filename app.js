@@ -1,8 +1,9 @@
 import{ ApolloServer} from '@apollo/server'
-const typeDefs= require('./graphql/schema');
-//import{typeDefs} from './graphql/schema'
-const resolver= require('./graphql/schema');
-//import {resolvers} from'../graphql/resolver'
+import { startStandaloneServer } from '@apollo/server/standalone';
+//const typeDefs= require('./graphql/schema');
+import{typeDefs} from './graphql/schema.js'
+//const resolver= require('./graphql/schema');
+import {resolvers} from'./graphql/resolver.js'
 
 //import {mongoose} from"mongoose"
 
@@ -22,8 +23,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-const port=4000;
-
-server.listen().then(({ port }) => {
-  console.log(`Server listening at ${port}`);
+const { url } = await startStandaloneServer(server, {
+  listen: { port: 4000 },
 });
+
+console.log(`🚀  Server ready at: ${url}`);

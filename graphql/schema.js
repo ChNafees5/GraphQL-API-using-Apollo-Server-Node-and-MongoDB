@@ -1,10 +1,11 @@
-const { gql}= require('apollo-server-express')
-const { ApolloServer }= require('@apollo/server');
-module.exports  = gql`
+import { gql} from'apollo-server-express'
+import { ApolloServer } from '@apollo/server'
+export const typeDefs= gql`
    type Query {
-    CheckApistatus:apistatus
+      checkapistatus: apistatus
    }
+
    type apistatus{
-    status:String
+    status: String
    }
 `
