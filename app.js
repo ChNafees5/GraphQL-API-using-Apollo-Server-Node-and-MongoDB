@@ -1,10 +1,13 @@
-const {graphqlSchema}= require('./graphql/schema');
-const {graphqlResolver}= require('./graphql/resolver');
-const { ApolloServer} = require ('@apollo/server');
-const {mongoose} = require("mongoose");
+import{ ApolloServer} from '@apollo/server'
+const typeDefs= require('./graphql/schema');
+//import{typeDefs} from './graphql/schema'
+const resolver= require('./graphql/schema');
+//import {resolvers} from'../graphql/resolver'
 
-mongoose
-  .connect("mongodb://localhost:27017/notes", {
+//import {mongoose} from"mongoose"
+
+/* mongoose
+ .connect("mongodb://localhost:27017/notes", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -13,13 +16,14 @@ mongoose
   })
   .catch((error) => {
     throw new Error(error);
-  });
+  });*/
 
 const server = new ApolloServer({
-  typeDefs: graphqlSchema,
-  resolvers: graphqlResolver,
+  typeDefs,
+  resolvers,
 });
+const port=4000;
 
-server.listen().then(({ url }) => {
-  console.log(`Server listening at ${url}`);
+server.listen().then(({ port }) => {
+  console.log(`Server listening at ${port}`);
 });
