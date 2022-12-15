@@ -5,9 +5,9 @@ import{typeDefs} from './graphql/schema.js'
 //const resolver= require('./graphql/schema');
 import {resolvers} from'./graphql/resolver.js'
 
-//import {mongoose} from"mongoose"
+import {mongoose} from"mongoose"
 
-/* mongoose
+ mongoose
  .connect("mongodb://localhost:27017/notes", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -17,7 +17,7 @@ import {resolvers} from'./graphql/resolver.js'
   })
   .catch((error) => {
     throw new Error(error);
-  });*/
+  });
 
 const server = new ApolloServer({
   typeDefs,
